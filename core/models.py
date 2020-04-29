@@ -1,6 +1,5 @@
 from djongo import models
 
-
 class Veiculo(models.Model):
 
    
