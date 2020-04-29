@@ -1,3 +1,5 @@
 from django.shortcuts import render
+from core.models import Veiculo
 
-# Create your views here.
+def home(request):
+    return render(request, 'index.html')
