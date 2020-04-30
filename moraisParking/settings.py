@@ -78,6 +78,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'moraisParkingdb',
+        'CLIENT': {
+            'host': 'mongodb://admin:admin123@clusterbase-shard-00-00-hj6e6.mongodb.net:27017,clusterbase-shard-00-01-hj6e6.mongodb.net:27017,clusterbase-shard-00-02-hj6e6.mongodb.net:27017/test?ssl=true&replicaSet=ClusterBase-shard-0&authSource=admin&retryWrites=true&w=majority'
+        }
     }
 }
 
