@@ -34,8 +34,9 @@ $ pip install -r requirements.txt
 
 #### Executar as migrações django
 
-`$ python manage.py makemigrations`
-`$ python manage.py migrate`
+```$ python manage.py makemigrations
+$ python manage.py migrate
+```
 
 #### Iniciar Server
 `$ python manage.py runserver`
