@@ -1,9 +1,44 @@
 {% extends 'base.html' %}
+
+{% load static %}
+
 {% block title%} Home{%endblock%}
 
 {% block body%}
-<h1>Morais Parking</h1>
 
-<a class="btn btn-secondary" href="{% url 'cadastrar-veiculo'%}">Cadastrar Veiculo</a>
+<div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top" src="{% static 'img/carro.jpg' %}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Cadastro de Veiculo</h5>
+          <p class="card-text">Cadastro de novos veículos no Morais Parking</p>
+          <a href="{% url 'cadastrar-veiculo'%}" class="btn btn-primary">Cadastrar Novo Veiculo</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top" src="{% static 'img/monitoramento.jpg' %}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Monitoramento</h5>  
+          <p class="card-text">Situação do estacionamento em tempo real</p>
+          <a href="#" class="btn btn-primary">Saiba mais</a>
+        </div>
+      </div>
+    </div>
+ 
+   <div class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top" src="{% static 'img/estacionamento.jpg' %}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Entrada de Veículos</h5>
+          <p class="card-text">Identificação de entrada de veículos no estacionamento</p>
+          <a href="#" class="btn btn-primary">Entrada no Estacionamento</a>
+        </div>
+      </div>
+    </div>
+</div>
+
 
 {% endblock%}
