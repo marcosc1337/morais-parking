@@ -10,4 +10,5 @@ def cadastrarVeiculo(request):
     if form.is_valid():
         form.save()
         return redirect('index')
-    return render(request, 'cadastrar-veiculo.html', {'form': form})
+    formContextToRender = {'form': form}
+    return render(request, 'cadastrar-veiculo.html',formContextToRender )
