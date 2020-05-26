@@ -8,15 +8,18 @@ from core.models import Veiculo
 def home(request):
     return render(request, 'index.html')
 
+def veiculosList(request):
+    veiculos = Veiculo.objects.all() 
+    return render(request, 'list.html', {'veiculos': veiculos} )
+
 @login_required
 def cadastrarVeiculo(request):
     if request.method == 'POST':
         form = CadastroVeiculoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
     else: 
         form = CadastroVeiculoForm()
-        
-    if form.is_valid():
-        form.save()
-        return redirect('index')
-    formContextToRender = {'form': form}
-    return render(request, 'cadastrar-veiculo.html',formContextToRender )
+        formContextToRender = {'form': form}
+        return render(request, 'cadastrar-veiculo.html',formContextToRender )
