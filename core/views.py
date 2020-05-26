@@ -10,7 +10,7 @@ def home(request):
 
 def veiculosList(request):
     veiculos = Veiculo.objects.all() 
-    return render(request, 'list.html', {'veiculos': veiculos} )
+    return render(request, 'listar-veiculos.html', {'veiculos': veiculos} )
 
 @login_required
 def cadastrarVeiculo(request):
@@ -23,3 +23,18 @@ def cadastrarVeiculo(request):
         form = CadastroVeiculoForm()
         formContextToRender = {'form': form}
         return render(request, 'cadastrar-veiculo.html',formContextToRender )
+
+def atualizarVeiculo(request, id):
+    veiculo = get_object_or_404(Veiculo, pk=id)
+    form = CadastroVeiculoForm(request.POST or None, instance=veiculo)
+    if form.is_valid():
+        form.save()
+        return redirect('listar-veiculos')
+    return render(request, 'editar-veiculo.html',{'form': form, 'veiculo': veiculo} )
+
+def deletarVeiculo(request, id):
+    veiculo = get_object_or_404(Veiculo, pk=id)
+    if request.method == 'POST':
+        veiculo.delete()
+        return redirect('listar-veiculos')
+    return render(request, 'deletar-veiculo.html', {'veiculo': veiculo})

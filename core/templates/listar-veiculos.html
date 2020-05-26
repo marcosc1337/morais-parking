@@ -37,8 +37,8 @@
                 <td>{{veiculo.placa}}</td>
                 <td>{{veiculo.proprietario}}</td>
                 <td>{{veiculo.curso}}</td>
-                <td><a href="#" class="fas fa-edit"></a></td>
-                <td><a href="#" class="fas fa-trash"></a></td>
+                <td><a href="{% url 'editar-veiculo' veiculo.id %}" class="fas fa-edit"></a></td>
+                <td><a href="{% url 'deletar-veiculo' veiculo.id %}" class="fas fa-trash"></a></td>
               </tr>
             {% endfor %}
             </tbody>
