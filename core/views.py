@@ -6,6 +6,7 @@ from core.models import Veiculo
 
 @login_required
 def home(request):
+    print(request.user.username)
     return render(request, 'index.html')
 
 @login_required
