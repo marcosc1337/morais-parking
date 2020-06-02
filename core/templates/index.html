@@ -7,6 +7,8 @@
 {% block body%}
 
 <div class="row">
+  
+    {% if user.user_type == 1 or user.user_type == None %}  
     <div class="col-sm-4">
       <div class="card">
         <img class="card-img-top" src="{% static 'img/carro.jpg' %}" alt="Card image cap">
@@ -17,6 +19,7 @@
         </div>
       </div>
     </div>
+
     <div class="col-sm-4">
       <div class="card">
         <img class="card-img-top" src="{% static 'img/monitoramento.jpg' %}" alt="Card image cap">
@@ -47,7 +50,9 @@
           <a href="{% url 'listar-veiculos'%}" class="btn btn-primary">Listar</a>
         </div>
       </div>
-    </div>    
+    </div>
+    {% endif %}
+    {% if user.user_type == 2 or user.user_type == None %}   
     <div class="col-sm-4">
       <div class="card">
         <img class="card-img-top" src="{% static 'img/register.jpg' %}" alt="Card image cap">
@@ -58,6 +63,7 @@
         </div>
       </div>
     </div>
+    {% endif %}
 </div>
 
 

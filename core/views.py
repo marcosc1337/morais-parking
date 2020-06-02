@@ -6,7 +6,7 @@ from core.models import Veiculo
 
 @login_required
 def home(request):
-    print(request.user.username)
+    print(type(request.user.user_type))
     return render(request, 'index.html')
 
 def veiculosList(request):
@@ -22,7 +22,9 @@ def cadastrarVeiculo(request):
             return redirect('index')
     else: 
         form = CadastroVeiculoForm()
-        formContextToRender = {'form': form}
+        formContextToRender = {
+            'form': form
+            }
         return render(request, 'cadastrar-veiculo.html',formContextToRender )
 
 def atualizarVeiculo(request, id):
