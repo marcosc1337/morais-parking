@@ -6,9 +6,9 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, UserM
 
 class User (AbstractBaseUser, PermissionsMixin):
     USER_TYPE_CHOICES = (
-        (1, 'funcionario'),
-        (2, 'rh'),
-        (3, 'gerente'),
+        (1, 'Funcionario Estacionamento'),
+        (2, 'Rh'),
+        (3, 'Gerente'),
     )
 
     username = models.CharField('Username', max_length=30, unique=True,

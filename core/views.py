@@ -6,7 +6,7 @@ from core.models import Veiculo
 
 @login_required
 def home(request):
-    print(type(request.user.user_type))
+    print(request.user.user_type)
     return render(request, 'index.html')
 
 def veiculosList(request):
