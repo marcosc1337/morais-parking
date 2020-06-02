@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from core.forms import  CadastroVeiculoForm
+from core.forms import EntradaVeiculosForm
 from core.models import Veiculo
+from core.models import Entrada
 
 
 @login_required
 def home(request):
-    print(request.user.user_type)
+    print(type(request.user.user_type))
     return render(request, 'index.html')
 
 def veiculosList(request):
@@ -41,3 +43,17 @@ def deletarVeiculo(request, id):
         veiculo.delete()
         return redirect('listar-veiculos')
     return render(request, 'deletar-veiculo.html', {'veiculo': veiculo})
+
+
+def entradaVeiculo(request):
+    if request.method == 'POST':
+        form = EntradaVeiculosForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('entrada-veiculo')
+    else: 
+        form = EntradaVeiculosForm()
+        formContextToRender = {
+            'form': form
+            }
+        return render(request, 'entrada.html',formContextToRender )

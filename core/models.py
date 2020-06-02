@@ -11,7 +11,7 @@ class Veiculo(models.Model):
 
     def __str__(self):
         return self.proprietario
-        
+
 class Entrada(models.Model):
     SETOR_TYPE_CHOICES = (
         (1, 'setor A Funcionarios'),

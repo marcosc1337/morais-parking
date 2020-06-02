@@ -11,4 +11,4 @@ class CadastroVeiculoForm(ModelForm):
 class EntradaVeiculosForm(ModelForm):
     class Meta:
         model = Entrada
-        fields = ['setor_type','placa','data_joined']
+        fields = ['setor_type','placa']
