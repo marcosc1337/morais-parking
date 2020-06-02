@@ -23,3 +23,9 @@ class Entrada(models.Model):
     setor_type = models.PositiveSmallIntegerField(choices=SETOR_TYPE_CHOICES)
     placa = models.CharField(max_length=7, null=False, unique=True)
     date_joined = models.DateTimeField('Data de entrada', auto_now_add=True)
+
+class Evento(models.Model):
+
+    evento = models.CharField(max_length=50, null=false, unique=True)
+    data = models.DateTimeField()
+    descrição = models.TextField()
